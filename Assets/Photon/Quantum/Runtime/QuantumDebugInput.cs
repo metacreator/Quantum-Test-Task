@@ -1,31 +1,39 @@
+using UnityEngine;
+using UnityEngine.InputSystem;
+using Photon.Deterministic;
+
 namespace Quantum {
-  using Photon.Deterministic;
-  using UnityEngine;
-
-  /// <summary>
-  /// A Unity script that creates empty input for any Quantum game.
-  /// </summary>
   public class QuantumDebugInput : MonoBehaviour {
+    private Vector2 _move;
+    private bool _jumpPressed;
 
-    private void OnEnable() {
-      QuantumCallback.Subscribe(this, (CallbackPollInput callback) => PollInput(callback));
+    void OnEnable() {
+      QuantumCallback.Subscribe(this, (CallbackPollInput cb) => PollInput(cb));
+      var kb = Keyboard.current;
+      var gp = Gamepad.current;
     }
 
-    /// <summary>
-    /// Set an empty input when polled by the simulation.
-    /// </summary>
-    /// <param name="callback"></param>
-    public void PollInput(CallbackPollInput callback) {
-#if DEBUG
-      if (callback.IsInputSet) {
-        Debug.LogWarning($"{nameof(QuantumDebugInput)}.{nameof(PollInput)}: Input was already set by another user script, unsubscribing from the poll input callback. Please delete this component.", this);
-        QuantumCallback.UnsubscribeListener(this);
-        return;
-      }
-#endif
+    void OnDisable() {
+      QuantumCallback.UnsubscribeListener(this);
+    }
 
-      Quantum.Input i = new Quantum.Input();
-      callback.SetInput(i, DeterministicInputFlags.Repeatable);
+    void Update() {
+      var kb = Keyboard.current;
+      var x = (kb.aKey.isPressed ? -1f : 0f) + (kb.dKey.isPressed ? 1f : 0f);
+      var y = (kb.sKey.isPressed ? -1f : 0f) + (kb.wKey.isPressed ? 1f : 0f);
+      _move = new Vector2(x, y);
+      _jumpPressed |= kb.spaceKey.wasPressedThisFrame;
+
+      if (_move.sqrMagnitude > 1f) _move.Normalize();
+    }
+
+    void PollInput(CallbackPollInput callback) {
+      if (callback.PlayerSlot > 0) return;
+
+      var input = new Quantum.Input { Direction = new FPVector2(_move.x.ToFP(), _move.y.ToFP()), Jump = _jumpPressed };
+      _jumpPressed = false;
+      callback.SetInput(input, DeterministicInputFlags.Repeatable);
+      Debug.Log("PollInput");
     }
   }
 }

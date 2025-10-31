@@ -237,7 +237,7 @@ MonoBehaviour:
     X:
       RawValue: 0
     Y:
-      RawValue: 32768
+      RawValue: 0
     Z:
       RawValue: 0
   Radius:
@@ -393,6 +393,12 @@ MonoBehaviour:
   - SystemType:
       AssemblyQualifiedName: Quantum.Core.PlayerConnectedSystem, Quantum.Simulation,
         Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+    SystemName: 
+    StartDisabled: 0
+    Children: []
+  - SystemType:
+      AssemblyQualifiedName: Quantum.MovementSystem, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
     SystemName: 
     StartDisabled: 0
     Children: []
