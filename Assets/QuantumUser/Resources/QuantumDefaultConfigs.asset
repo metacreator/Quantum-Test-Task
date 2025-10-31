@@ -403,7 +403,7 @@ MonoBehaviour:
     StartDisabled: 0
     Children: []
   - SystemType:
-      AssemblyQualifiedName: Quantum.FinishLineSystem, Assembly-CSharp, Version=0.0.0.0,
+      AssemblyQualifiedName: Quantum.TriggerSystem, Assembly-CSharp, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
     SystemName: 
     StartDisabled: 0

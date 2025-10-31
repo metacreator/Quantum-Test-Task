@@ -287,4 +287,4 @@ MonoBehaviour:
       type: {class: PhysicsCallbacks3DPrototype, ns: Quantum.Prototypes, asm: Quantum.Engine}
       data:
         CallbackFlags:
-          Value: 512
+          Value: 1024

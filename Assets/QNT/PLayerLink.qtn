@@ -2,9 +2,6 @@ component PlayerLink {
   PlayerRef Player;
 }
 
-component FinishLine {
-}
-
 event LevelComplete { }
 
 input {
