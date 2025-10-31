@@ -11,12 +11,15 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/QuantumUser/Scenes/QuantumGameScene.unity
     guid: 3a89c2f4d05ae874ebb8b0100db5d88a
-  - enabled: 0
-    path: Assets/QuantumUser/Scenes/QuantumGameScene.unity
-    guid: 3a89c2f4d05ae874ebb8b0100db5d88a
+  - enabled: 1
+    path: Assets/QuantumUser/Scenes/SecondLevel.unity
+    guid: a908e02f7c0fad347aa184120fb71ed3
   - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
+  - enabled: 0
+    path: Assets/QuantumUser/Scenes/QuantumGameScene.unity
+    guid: 3a89c2f4d05ae874ebb8b0100db5d88a
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0

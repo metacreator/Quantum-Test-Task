@@ -1,8 +1,13 @@
 component PlayerLink {
-PlayerRef Player;
+  PlayerRef Player;
 }
 
+component FinishLine {
+}
+
+event LevelComplete { }
+
 input {
-FPVector2 Direction;
-button Jump;
+  FPVector2 Direction;
+  button Jump;
 }

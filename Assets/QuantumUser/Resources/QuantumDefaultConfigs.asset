@@ -402,6 +402,12 @@ MonoBehaviour:
     SystemName: 
     StartDisabled: 0
     Children: []
+  - SystemType:
+      AssemblyQualifiedName: Quantum.FinishLineSystem, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    SystemName: 
+    StartDisabled: 0
+    Children: []
 --- !u!114 &7254526991820565033
 MonoBehaviour:
   m_ObjectHideFlags: 0
