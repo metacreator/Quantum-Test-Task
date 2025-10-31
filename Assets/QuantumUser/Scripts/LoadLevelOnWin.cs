@@ -8,7 +8,6 @@ public class LoadNextLevelOnWin : MonoBehaviour
     {
         QuantumEvent.Subscribe(this, (EventLevelComplete e) =>
         {
-            Debug.Log("[LoadNextLevelOnWin] EventLevelComplete received — loading next scene");
             SceneManager.LoadScene(2);
         });
     }

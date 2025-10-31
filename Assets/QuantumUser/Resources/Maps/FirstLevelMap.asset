@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: -1722638350, guid: b156eeaae3f741b40af66649a4748430, type: 3}
-  m_Name: QuantumMap
+  m_Name: FirstLevelMap
   m_EditorClassIdentifier: Quantum.Engine.dll::Quantum.Map
   Identifier:
-    Path: QuantumUser/Resources/QuantumMap
+    Path: QuantumUser/Resources/Maps/FirstLevelMap
     Guid:
       Value: 315410191646893279
   UserAsset:
@@ -32,7 +32,7 @@ MonoBehaviour:
   TriangleMeshCellSize: -1
   StaticColliders3DTrianglesData:
     Id:
-      Value: 277800008741906159
+      Value: 452121542592263236
   SerializeTrianglesMetadata: 0
   GridSizeX: 64
   GridSizeY: 64

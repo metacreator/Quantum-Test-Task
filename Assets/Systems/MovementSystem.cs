@@ -1,3 +1,5 @@
+using UnityEngine;
+
 namespace Quantum
 {
     using Photon.Deterministic;
@@ -29,6 +31,8 @@ namespace Quantum
             public CharacterController3D* KCC;
             public PlayerLink* Link;
         }
+        
+        
 
         public void OnPlayerAdded(Frame f, PlayerRef player, bool firstTime)
         {
