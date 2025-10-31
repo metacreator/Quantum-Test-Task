@@ -7,17 +7,17 @@ namespace Quantum {
     private Vector2 _move;
     private bool _jumpPressed;
 
-    void OnEnable() {
+    private void OnEnable() {
       QuantumCallback.Subscribe(this, (CallbackPollInput cb) => PollInput(cb));
       var kb = Keyboard.current;
       var gp = Gamepad.current;
     }
 
-    void OnDisable() {
+    private void OnDisable() {
       QuantumCallback.UnsubscribeListener(this);
     }
 
-    void Update() {
+    private void Update() {
       var kb = Keyboard.current;
       var x = (kb.aKey.isPressed ? -1f : 0f) + (kb.dKey.isPressed ? 1f : 0f);
       var y = (kb.sKey.isPressed ? -1f : 0f) + (kb.wKey.isPressed ? 1f : 0f);
@@ -27,13 +27,12 @@ namespace Quantum {
       if (_move.sqrMagnitude > 1f) _move.Normalize();
     }
 
-    void PollInput(CallbackPollInput callback) {
+    private void PollInput(CallbackPollInput callback) {
       if (callback.PlayerSlot > 0) return;
 
       var input = new Quantum.Input { Direction = new FPVector2(_move.x.ToFP(), _move.y.ToFP()), Jump = _jumpPressed };
       _jumpPressed = false;
       callback.SetInput(input, DeterministicInputFlags.Repeatable);
-      Debug.Log("PollInput");
     }
   }
 }
