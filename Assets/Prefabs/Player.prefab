@@ -386,7 +386,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b137f2a38d63dbb4caa2e935573a8b1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AnimationView
+  visual: {fileID: 8594698068911502698}
   animator: {fileID: 2424815183328800528}
+  speedParam: Speed
+  jumpParam: Jumping
+  jumpIsTrigger: 0
+  rotateSpeed: 10
+  minMove: 0.001
+  jumpBoolDuration: 0.25
 --- !u!1001 &8127934263330460289
 PrefabInstance:
   m_ObjectHideFlags: 0
