@@ -547,6 +547,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acee3b39ed4eb834db894bb5b59650dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LoadNextLevelOnWin
+  FirstLevel: {fileID: 1621983898}
+  SecondLevel: {fileID: 943415653}
 --- !u!4 &317793780
 Transform:
   m_ObjectHideFlags: 0
