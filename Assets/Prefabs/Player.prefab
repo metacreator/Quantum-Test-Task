@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8027658452636013622}
   - component: {fileID: 8248233699128673326}
   - component: {fileID: 5862197270635481006}
-  - component: {fileID: 3515355900720835242}
+  - component: {fileID: 5710528812825750443}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -374,7 +374,7 @@ MonoBehaviour:
     Config:
       Id:
         Value: 3468236410191796170
---- !u!114 &3515355900720835242
+--- !u!114 &5710528812825750443
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -383,17 +383,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 5257320286672158649}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b137f2a38d63dbb4caa2e935573a8b1c, type: 3}
+  m_Script: {fileID: 11500000, guid: 5b22f0773a39753418ec9ecc5a31929b, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::AnimationView
-  visual: {fileID: 8594698068911502698}
-  animator: {fileID: 2424815183328800528}
-  speedParam: Speed
-  jumpParam: Jumping
-  jumpIsTrigger: 0
-  rotateSpeed: 10
-  minMove: 0.001
-  jumpBoolDuration: 0.25
+  m_EditorClassIdentifier: Assembly-CSharp::CameraFollow
+  offset: {x: 0, y: 2, z: -4}
 --- !u!1001 &8127934263330460289
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -462,10 +455,17 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: dadf5cf03a6fb1a4d9f504e53a942aa6, type: 2}
+    - target: {fileID: 5866666021909216657, guid: 81bb9eea30387e442899949a80011e55, type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 81bb9eea30387e442899949a80011e55, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2228634084560855781}
   m_SourcePrefab: {fileID: 100100000, guid: 81bb9eea30387e442899949a80011e55, type: 3}
 --- !u!95 &2424815183328800528 stripped
 Animator:
@@ -477,3 +477,27 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 81bb9eea30387e442899949a80011e55, type: 3}
   m_PrefabInstance: {fileID: 8127934263330460289}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &8938889861474349008 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 81bb9eea30387e442899949a80011e55, type: 3}
+  m_PrefabInstance: {fileID: 8127934263330460289}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2228634084560855781
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8938889861474349008}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b137f2a38d63dbb4caa2e935573a8b1c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Quantum.AnimationView
+  visual: {fileID: 8594698068911502698}
+  animator: {fileID: 2424815183328800528}
+  speedParam: Speed
+  jumpParam: Jumping
+  rotateSpeed: 12
+  minInput: 0.05
+  jumpBoolDuration: 0.25
