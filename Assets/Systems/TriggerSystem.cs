@@ -6,6 +6,8 @@ namespace Quantum
         ISignalOnTriggerEnter3D,
         ISignalOnMapChanged
     {
+        private bool _setBoxMassesNextFrame;
+        
         public void OnTriggerEnter3D(Frame f, TriggerInfo3D info)
         {
             if (!f.TryFindAsset(f.Map.UserAsset.Id, out MapMeta meta) || !meta.NextMap.IsValid) return;
@@ -31,11 +33,38 @@ namespace Quantum
                     kcc->Velocity = FPVector3.Zero;
                 }
             }
+            
+            _setBoxMassesNextFrame = true;
         }
 
 
-        public override void Update(Frame f)
-        {
+        public override void Update(Frame f) {
+            if (!_setBoxMassesNextFrame)
+                return;
+            _setBoxMassesNextFrame = false;
+
+            int index = 0;
+
+            foreach (var it in f.GetComponentIterator<PhysicsBody3D>()) {
+                var entity = it.Entity;
+
+                if (!f.Unsafe.TryGetPointer<PhysicsBody3D>(entity, out var body))
+                    continue;
+
+                FP m = index == 0 ? FP.FromFloat_UNSAFE(1f) :       
+                    index == 1 ? FP.FromFloat_UNSAFE(10f) :     
+                    FP.FromFloat_UNSAFE(50f);      
+
+
+                body->Mass = m;
+                body->Velocity = FPVector3.Zero;
+                body->AngularVelocity = FPVector3.Zero;
+
+                index++;
+                if (index >= 3)
+                    break;
+            }
         }
+        
     }
 }
