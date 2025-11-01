@@ -3,7 +3,7 @@ using Photon.Deterministic;
 
 namespace Quantum {
   public unsafe class MovementSystem
-    : SystemMainThreadFilter<MovementSystem.Filter>, ISignalOnPlayerAdded {
+    : SystemMainThreadFilter<MovementSystem.Filter> {
 
     static readonly FP PushStrength = FP.FromFloat_UNSAFE(20f);
     static readonly FP PushRadius   = FP.FromFloat_UNSAFE(1f);
@@ -66,19 +66,6 @@ namespace Quantum {
       public Transform3D* Transform;
       public CharacterController3D* KCC;
       public PlayerLink* Link;
-    }
-
-    public void OnPlayerAdded(Frame f, PlayerRef player, bool firstTime) {
-      var runtimePlayer = f.GetPlayerData(player);
-      var entity = f.Create(runtimePlayer.PlayerAvatar);
-
-      f.Add(entity, new PlayerLink { Player = player });
-
-      if (f.Unsafe.TryGetPointer<Transform3D>(entity, out var tr)) {
-        int playerIndex = (int)player; // works in every Quantum build
-        var offsetX = FP.FromFloat_UNSAFE(playerIndex * 2f);
-        tr->Position = new FPVector3(offsetX, FP.FromFloat_UNSAFE(2f), Zero);
-      }
     }
   }
 }
